@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .square {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="square" id="square"></div>
+    <button id="btn_change">Change color</button>
+
+    <script>
+        var randomColor = function () {
+            return '#' + Math.floor( Math.random() * 16777215 ).toString(16);
+        }
+
+        var callback = function () {
+            document.getElementById('square').style.backgroundColor = randomColor();
+        }
+
+        document.getElementById('btn_change')
+            .addEventListener('click', function () {
+                setTimeout(callback, 1000);
+            });
+    </script>
+</body>
+</html>

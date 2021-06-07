@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var mangGoc = [ 12, 43, 37, 24, 53 ];
+
+        var testMap = mangGoc.map(function (value, index) {
+            value += index;
+
+            return value;
+        });
+
+        console.log("Mảng gốc:", mangGoc);
+        console.log("Mảng sau map:", testMap);
+
+        var testForEach = mangGoc.forEach(function (value, index) {
+            value++;
+            return value * 2;
+        });
+
+        console.log("Mảng gốc:", mangGoc);
+        console.log("Mảng sau forEach:", testForEach);
+    </script>
+</body>
+</html>

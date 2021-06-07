@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var sv = {
+            maSv: "PH12345",
+            hoTen: "Nguyen Hong Thuan",
+            lop: "PT15301",
+            ngayNhapHoc: new Date(2020, 5, 20),
+            diemTrungBinh: 4.5,
+            tinhHocLuc: function () {
+                if (this.diemTrungBinh < 5) {
+                    return "Yếu";
+                }
+
+                if (this.diemTrungBinh < 7) {
+                    return "Trung Bình";
+                }
+
+                if (this.diemTrungBinh < 8) {
+                    return "Khá";
+                }
+
+                return "Giỏi";
+            },
+            thoiGianRaTruong: function() {
+                var now = new Date();
+                console.log(this.ngayNhapHoc, now);
+
+                const diffTime = Math.abs(now - this.ngayNhapHoc);
+                const diffMonths = Math.ceil(diffTime / (1000 * 60 * 60 * 24 * 30));
+                console.log("Thời gian ra trường: " + diffMonths);
+            }
+        };
+
+        sv.thoiGianRaTruong();
+    </script>
+</body>
+</html>

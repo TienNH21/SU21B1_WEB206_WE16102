@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var makePromise = function (timeout) {
+            var promise = new Promise(function (resolve, reject) {
+                try {
+                    setTimeout(() => {
+                        var result = tungXucXac();
+                        resolve(result);
+                    }, timeout);
+                } catch (error) {
+                    console.log(error);
+                    reject(error);
+                }
+            });
+
+            return promise;
+        }
+
+        var tungXucXac = function () {
+            return Math.floor( Math.random() * 6 );
+        }
+
+        var ng1 = {}, ng2 = {};
+
+        ng1.ten = prompt("Nhập tên người chơi 1: ");
+        ng2.ten = prompt("Nhập tên người chơi 2: ");
+
+        makePromise(2000)
+            .then(function (result) {
+                ng1.diem = result;
+
+                return makePromise(2000);
+            })
+            .then(function (result) {
+                ng2.diem = result;
+
+                console.log(ng1.ten + " - " + ng1.diem);
+                console.log(ng2.ten + " - " + ng2.diem);
+                if (ng1.diem < ng2.diem) {
+                    alert("Người thắng: " + ng2.ten);
+                } else {
+                    alert("Người thắng: " + ng1.ten);
+                }
+            })
+            .catch(function (error) {
+                //
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .square {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="my_div" class="square"></div>
+
+    <script>
+        var changeColor = function (color) {
+            document.querySelector('#my_div').style.backgroundColor = color;
+        }
+
+        var promise1 = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve(); // kích hoạt hàm then() của promise
+            }, 1000);
+        });
+
+        promise1.then(function () {
+            changeColor('yellow');
+            console.log("Đổi màu vàng thành công");
+
+            var promise2 = new Promise(function (resolve) {
+                setTimeout(function () {
+                    resolve();
+                }, 1000);
+            });
+
+            promise2.then(function () {
+                changeColor('green');
+                console.log("Chuyển màu xanh thành công");
+            });
+        });
+    </script>
+</body>
+</html>

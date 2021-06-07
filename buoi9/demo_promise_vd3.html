@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="ket_qua" ></h2>
+    <script>
+        var makePromise = function (timeout) {
+            var promise = new Promise(function (resolve, reject) {
+                try {
+                    setTimeout(() => {
+                        resolve();
+                    }, timeout);
+                } catch (error) {
+                    console.log(error);
+                    reject();
+                }
+            });
+
+            return promise;
+        }
+
+        var diemTk = prompt("Nhập điểm tổng kết: ");
+        var promiseHetMon = makePromise(2000); // SV vừa thi xong
+        promiseHetMon
+            .then(function () {
+                console.log("GV đã nộp điểm")
+
+                return makePromise(2000);
+            })
+            .then(function () {
+                console.log("PDT đã nhập điểm");
+
+                return makePromise(1000);
+            })
+            .then(function () {
+
+                var result = '';
+                if (diemTk > 9) {
+                    result = "Đi Singapore";
+                } else {
+                    result = "Ko đi";
+                }
+
+                document.getElementById('ket_qua').innerText = result;
+            })
+    </script>
+</body>
+</html>

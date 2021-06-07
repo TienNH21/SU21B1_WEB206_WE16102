@@ -1,0 +1,32 @@
+{
+  "authors": [
+    {
+      "id": 1,
+      "name": "thienth3"
+    },
+    {
+      "id": 2,
+      "name": "datlt34"
+    }
+  ],
+  "posts": [
+    {
+      "title": "Hello World 2",
+      "authorId": "2",
+      "contents": "Hello Poly",
+      "id": 2
+    },
+    {
+      "title": "Assignment 1",
+      "authorId": "1",
+      "contents": "Assignment 1 Contents",
+      "id": 4
+    },
+    {
+      "title": "Assignment bcvbcv",
+      "authorId": "1",
+      "contents": "abc",
+      "id": 5
+    }
+  ]
+}

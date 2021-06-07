@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./../libs/lodash.js"></script>
+    <script src="./../libs/moment.js"></script>
+    <!-- <script src="https://raw.githubusercontent.com/lodash/lodash/4.17.10-npm/lodash.js"></script> -->
+    <script>
+        var mangGoc = [
+            { ten: 'Nguyen Van A', tuoi: 31 },
+            undefined,
+            { ten: 'Nguyen Van B', tuoi: 21 },
+            null,
+            { ten: 'Nguyen Van C', tuoi: 25 },
+        ];
+
+        var filterCallback = function (value, thuan) {
+            // console.log(value, thuan);
+
+            return value;
+        };
+
+        var kq = mangGoc.filter(filterCallback);
+        console.log("Mảng sau khi filter");
+        console.log(kq);
+
+        var sxTang = function (a, b) {
+            return a.tuoi - b.tuoi;
+        }
+
+        console.log("Mảng sau khi sắp xếp");
+        console.log(kq.sort(sxTang));
+    </script>
+</body>
+</html>

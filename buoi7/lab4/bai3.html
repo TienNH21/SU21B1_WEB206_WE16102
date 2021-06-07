@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="txt" />
+        <button id="btn_enter">Enter</button>
+        <button id="btn_sort">Sort</button>
+        <ul id="list_sv">
+        </ul>
+    </div>
+
+    <script>
+        var arrName = [];
+        document.querySelector('#btn_enter').addEventListener('click', function btnEnterOnClick() {
+            var txt = document.querySelector("#txt").value.toUpperCase();
+            arrName.push(txt);
+
+            var liElement = document.createElement('li'); // Tạo ra 1 Node li
+            liElement.innerText = txt;
+
+            document.querySelector('ul#list_sv').appendChild(liElement);
+        });
+
+        document.querySelector('#btn_sort').addEventListener('click', function xuLySapXep() {
+            var result = arrName.sort();
+
+            document.querySelector('ul#list_sv').innerHTML = '';
+            var html = '';
+            result.forEach(value => {
+                html += "<li>" + value + "</li>"
+            });
+
+            document.querySelector('ul#list_sv').innerHTML = html;
+        });
+    </script>
+</body>
+</html>

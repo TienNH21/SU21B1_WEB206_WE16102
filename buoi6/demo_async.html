@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ten1 = prompt("Nhập tên 1:");
+        var ten2 = prompt("Nhập tên 2:");
+
+        var tung1, tung2;
+
+        var tungXucXac = function () {
+            return Math.floor( Math.random() * 6 )
+        }
+
+        setTimeout(function () {
+            tung1 = tungXucXac();
+        }, 2000);
+
+        setTimeout(function () {
+            tung2 = tungXucXac();
+        }, 2000);
+    </script>
+</body>
+</html>

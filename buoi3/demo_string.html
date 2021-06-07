@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label>String</label>
+        <input type="text" id="string" value="FPT Polytechnic"/>
+    </div>
+    <div>
+        <label>Number</label>
+        <input type="number" id="number" value="3"/>
+    </div>
+    <div>
+        <button id="btn_convert">Convert</button>
+        <h1 id="result"></h1>
+    </div>
+    <script>
+        document.getElementById('btn_convert')
+            .addEventListener('click', function () {
+                var string = document.getElementById('string').value;
+                var number = document.getElementById('number').value;
+                var phanTruoc = string.slice(0, number);
+                var phanSau = string.slice(number);
+
+                var result = '';
+                if (phanSau.trim().length == 0) {
+                    result = phanTruoc + '.';
+                } else {
+                    result = phanTruoc + '...';
+                }
+
+                document.getElementById('result').innerText = result;
+            });
+    </script>
+</body>
+</html>
