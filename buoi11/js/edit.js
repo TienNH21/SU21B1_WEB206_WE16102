@@ -47,4 +47,3 @@ document.querySelector('#form_edit')
         }
         fetch(apiShowUrl, options)
     });
-

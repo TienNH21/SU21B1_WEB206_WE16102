@@ -5,11 +5,9 @@ fetch(url)
     })
     .then(function (respData) {
         var html = '';
-        console.log("Dữ liệu server trả về: ", respData);
 
         console.log("Bắt đầu lặp")
         respData.forEach(function (post, index) {
-            console.log(`post[${ index }] = `, post)
             var tRow = `<tr>
                 <td>${ post.id }</td>
                 <td>${ post.title }</td>
@@ -21,7 +19,12 @@ fetch(url)
                     </a>
                 </td>
                 <td>
-                    <button class="btn btn-danger">Delete</button>
+                    <button
+                        class="btn btn-danger"
+                        data-id="${ post.id }"
+                        id="btn_delete_${ post.id }">
+                        Delete
+                    </button>
                 </td>
             </tr>`;
 
@@ -30,3 +33,27 @@ fetch(url)
 
         document.getElementById('list_post').innerHTML = html;
     });
+
+// Event delegation
+$('tbody#list_post').on('click', 'button[id^="btn_delete_"]', function (event) {
+    // console.log( 'id: ', event.currentTarget.attributes['id'].value.split('_').reverse()[0] )
+    console.log($('#' + event.currentTarget.attributes['id'].value))
+    var id = event.currentTarget.attributes['data-id'].value;
+
+    var apiDelete = 'http://localhost:3000/posts/' + id;
+    var options = {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    fetch(apiDelete, options)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            alert("Xóa thành công");
+        })
+});
