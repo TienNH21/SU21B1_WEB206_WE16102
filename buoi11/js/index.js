@@ -1,4 +1,23 @@
-var url = "http://localhost:3000/posts?_expand=author";
+var searchParams = new URLSearchParams(window.location.search);
+var currentPage = searchParams.get("_page") ? searchParams.get("_page") : 1;
+var limit = searchParams.get("_limit") ? searchParams.get("_limit") : 10;
+
+document.querySelector("a#current_page").innerText=currentPage;
+$("a#current_page").text(currentPage);
+
+if (currentPage == 1) {
+    $("a#previous_page").closest('li').addClass("disabled");
+} else {
+    $("a#previous_page").closest('li').removeClass("disabled");
+}
+$("a#previous_page").on('click', function (event) {
+    event.preventDefault();
+    searchParams.set("_page", currentPage - 1);
+    var url = window.location.href.split("?");
+    window.location.href = url[0] + "?" + searchParams.toString();
+});
+
+var url = `http://localhost:3000/posts?_expand=author&_page=${currentPage}&_limit=${limit}`;
 fetch(url)
     .then(function (response) {
         return response.json(); // response.json() trả về 1 promise -> then lần 2

@@ -22,5 +22,28 @@
       "contents": "Assignment 1 Contents",
       "id": 4
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "ThienTH3",
+      "email": "thienth@fpt.edu.vn",
+      "role": 2,
+      "password": "123@456"
+    },
+    {
+      "id": 2,
+      "name": "DatLT34",
+      "email": "datlt34@fpt.edu.vn",
+      "role": 2,
+      "password": "123@456"
+    },
+    {
+      "id": 3,
+      "name": "TienNH21",
+      "email": "tiennh21@fpt.edu.vn",
+      "role": 1,
+      "password": "12345678"
+    }
   ]
 }
